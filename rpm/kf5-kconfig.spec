@@ -1,8 +1,8 @@
-%global kf5_version 5.104.0
+%global kf5_version 5.105.0
 %global framework kconfig
 
 Name:    opt-kf5-kconfig
-Version: 5.104.0
+Version: 5.105.0
 Release: 1%{?dist}
 Summary: KDE Frameworks 5 Tier 1 addon with advanced configuration system
 

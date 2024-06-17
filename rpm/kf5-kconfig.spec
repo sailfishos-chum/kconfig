@@ -110,10 +110,7 @@ PYTHONPATH=%{_datadir}/ECM/python
 export PYTHONPATH
 %endif
 
-mkdir -p build
-pushd build
-
-%_opt_cmake_kf5 ../ \
+%_opt_cmake_kf5 \
   %if 0%{?flatpak}
   %{?docs:-DBUILD_QCH:BOOL=OFF} \
   %else
@@ -122,14 +119,10 @@ pushd build
   %{?ninja:-G Ninja} \
   %{?tests:-DBUILD_TESTING:BOOL=ON}
 
-%make_build
-
-popd
+%cmake_build
 
 %install
-pushd build
-make DESTDIR=%{buildroot} install
-popd
+%cmake_install
 
 %find_lang_kf5 kconfig5_qt
 
